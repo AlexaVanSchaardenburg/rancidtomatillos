@@ -1,18 +1,19 @@
-import './MovieCards.css';
+import './MovieCard.css';
 
 const MovieCard = ({ movie }) => {
-  const { title, posterImage, releaseDate, averageRating } = movie;
+  const { title, poster_path, release_date, average_rating } = movie;
 
   return (
     <div className="movie-card">
-      <img className="poster" src={posterImage} alt={title} />
+      <img src={poster_path} alt={title} />
       <div className="movie-details">
-        <h3 className="movie-title">{title}</h3>
-        <p className="release-date">Year: {releaseDate.split("-")[0]}</p>
-        <p className="movie-rating">Rating: {averageRating}</p>
+        <h3>{title}</h3>
+        <p>Year: {release_date.split("-")[0]}</p>
+        <p>Rating: {average_rating}</p>
       </div>
     </div>
   );
 };
+
 
 export default MovieCard;
