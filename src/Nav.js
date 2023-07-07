@@ -1,5 +1,5 @@
 import './Nav.css';
-import rancidTomatillosLogo from "./assets/rancidTomatillosLogo.png";
+import rancidTomatillosLogo from "./assets/rancid-tomatillos-logo.png";
 import homeIcon from "./assets/home-icon.png";
 
 const Nav = () => {
