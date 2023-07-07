@@ -10,17 +10,17 @@ function Details({ movie }) {
                     <h1>{movie.title}</h1>
                     <div>
                         <p>{movie.release_date}</p>
-                        <p>{`${movie.runtime} min`}</p>
+                        <p>{movie.runtime} min</p>
                     </div>
                     <p>{movie.tagline}</p>
                     <p>{movie.overview}</p>
                 </div>
                 <div>
-                    <h3>{`Rating: ${movie.average_rating}/10`}</h3>
+                    <h3>Rating: {movie.average_rating}/10</h3>
                     <p>Movie Budget:</p>
-                    <p>{`$${movie.budget}`}</p>
+                    <p>${movie.budget}</p>
                     <p>Movie Revenue:</p>
-                    <p>{`$${movie.revenue}`}</p>
+                    <p>${movie.revenue}</p>
                 </div>
             </div> 
         </article>
