@@ -10,4 +10,6 @@ const Nav = () => {
   );
 };
 
+// need to add a conditional rendering of the button based on which page we are on, but I'm not sure how to do this yet.
+
 export default Nav;
