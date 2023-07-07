@@ -1,0 +1,30 @@
+.movie-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-gap: 10px;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.movie-poster {
+  width: 150px;
+  height: auto;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  width: 120px;
+}
+
+.release-date {
+  font-size: 14px;
+}

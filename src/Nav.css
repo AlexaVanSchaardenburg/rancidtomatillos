@@ -1,0 +1,12 @@
+.nav-container {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #180047;
+  margin-bottom: 20px;
+}
+
+.logo {
+  margin-left: 10px;
+  width: 600px;
+}
+
