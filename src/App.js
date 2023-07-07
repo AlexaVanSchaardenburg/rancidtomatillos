@@ -10,11 +10,11 @@ const App = () => {
   return (
     <>
       <Nav />
-      <div className="movie-card-grid">
+      {/* <div className="movie-card-grid">
         {movieData.movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie}/>
         ))}
-      </div>
+      </div> */}
       <Details movie={individualMovieData.movie}/>
     </>
   );
