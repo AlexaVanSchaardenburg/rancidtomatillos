@@ -1,14 +1,12 @@
 import './App.css';
 import Nav from "./Nav";
 import movieData from './mockMovieData.js'
+import individualMovieData from './mockIndividualMovieData.js'
 import MovieCard from "./MovieCard";
+import Details from './Details.js'
 
 const App = () => {
 
-  const displayDetails = (movie) => {
-    //function to move display to the details page for whichever movie was clicked 
-    console.log(`The movie with Title ${movie.title} was clicked`)
-  }
   return (
     <>
       <Nav />
@@ -17,6 +15,7 @@ const App = () => {
           <MovieCard key={movie.id} movie={movie}/>
         ))}
       </div>
+      <Details movie={individualMovieData.movie}/>
     </>
   );
 };
