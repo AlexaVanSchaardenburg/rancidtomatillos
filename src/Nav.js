@@ -1,11 +1,13 @@
 import './Nav.css';
 import rancidTomatillosLogo from "./assets/rancid-tomatillos-logo.png";
-import homeIcon from "./assets/home-icon.png";
+import Button from './Button';
 
-const Nav = () => {
+
+const Nav = ({ showButton, onClick }) => {
   return (
     <nav className="nav-container">
       <img src={rancidTomatillosLogo} alt="Rancid Tomatillos Logo" className="logo" />
+      {showButton && <Button onClick={onClick} />}
     </nav>
   );
 };
