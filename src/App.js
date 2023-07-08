@@ -15,7 +15,7 @@ const App = () => {
 
   return (
     <>
-      <Nav />
+      <Nav showButton={showMovieDetails} />
       {showMovieDetails ? (
         <Details movie={individualMovieData.movie} />
       ) : (
