@@ -1,7 +1,8 @@
 import './App.css';
 import Nav from "./Nav";
-import movieData from './mockMovieData.js'
-import individualMovieData from './mockIndividualMovieData.js'
+// import movieData from './mockMovieData.js'
+// import individualMovieData from './mockIndividualMovieData.js'
+import { getAllMovies } from './apiCalls.js'
 import MovieCard from "./MovieCard";
 import Details from './Details.js'
 import { useState } from 'react';
@@ -12,6 +13,8 @@ const App = () => {
   const handleMovieClick = () => {
     setShowMovieDetails(true);
   };
+
+
 
   return (
     <>
