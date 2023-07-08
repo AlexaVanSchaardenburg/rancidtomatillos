@@ -4,20 +4,30 @@ import movieData from './mockMovieData.js'
 import individualMovieData from './mockIndividualMovieData.js'
 import MovieCard from "./MovieCard";
 import Details from './Details.js'
+import { useState } from 'react';
 
 const App = () => {
+  const [showMovieDetails, setShowMovieDetails] = useState(false);
+
+  const handleMovieClick = () => {
+    setShowMovieDetails(true);
+  };
 
   return (
     <>
       <Nav />
-      <div className="movie-card-grid">
-        {movieData.movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie}/>
-        ))}
-      </div>
-      <Details movie={individualMovieData.movie}/>
+      {showMovieDetails ? (
+        <Details movie={individualMovieData.movie} />
+      ) : (
+        <div className="movie-card-grid">
+          {movieData.movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} onClick={handleMovieClick} />
+          ))}
+        </div>
+      )}
     </>
   );
 };
+
 
 export default App;
