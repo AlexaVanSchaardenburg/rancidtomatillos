@@ -1,0 +1,16 @@
+.home-icon {
+  height: 50px;
+  width: 50px;
+}
+
+.button {
+  background-color: #180047;
+  padding: 0;
+  border: none;
+  background: none;
+  margin-left: 450px;
+}
+
+.button:hover {
+  cursor: grab;
+}

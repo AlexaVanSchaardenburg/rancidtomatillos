@@ -22,10 +22,13 @@ const App = () => {
       setAllMovies(data.movies)
     })
   }, [])
+  const handleReturnToMain = () => {
+    setShowMovieDetails(false);
+  };
 
   return (
     <>
-      <Nav />
+      <Nav showButton={showMovieDetails} onClick={handleReturnToMain} />
       {showMovieDetails ? (
         <Details movie={individualMovie.movie} />
       ) : (
