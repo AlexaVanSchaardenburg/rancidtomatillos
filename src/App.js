@@ -2,7 +2,7 @@ import './App.css';
 import Nav from "./Nav";
 // import movieData from './mockMovieData.js'
 import individualMovieData from './mockIndividualMovieData.js'
-import { getAllMovies } from './apiCalls.js'
+import { getData } from './apiCalls.js'
 import MovieCard from "./MovieCard";
 import Details from './Details.js'
 import { useState, useEffect } from 'react';
@@ -16,7 +16,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    getAllMovies().then(data => {
+    getData('https://rancid-tomatillos.herokuapp.com/api/v2/movies').then(data => {
       setAllMovies(data.movies)
     })
   }, [])
