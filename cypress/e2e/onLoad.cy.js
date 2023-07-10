@@ -25,6 +25,15 @@ describe('main page/all movies view', () => {
 
   // test that the movieCards contain the right information
 
+it('displays the correct information in movie cards', () => {
+  cy.get('.movie-card').each(($card, index) => {
+    const movie = moviesData.movies[index];
+    cy.assertMovieCard($card, movie);
+  });
+});
+  
+  
+
 
 });
 
