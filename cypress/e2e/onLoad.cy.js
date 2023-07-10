@@ -17,8 +17,13 @@ describe('main page/all movies view', () => {
     cy.get('img.logo').should('be.visible');
   });
   
-
   // test that i see the movie collection
+
+  it('displays the movie collection', () => {
+    console.log(moviesData.length)
+    cy.get('.movie-card').should('have.length', moviesData.movies.length);
+  });
+  
 
   // test that the movieCards contain the right information
 });
