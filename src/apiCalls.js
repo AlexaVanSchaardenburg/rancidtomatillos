@@ -1,19 +1,20 @@
+
 const getData = (url) => {
   return fetch(url)
-  .then((response) => {
-    if(!response.ok){
-      //code for error handling goes here
-    } else {
-      return response.json()
-    }
-  })
-  .catch(error => {
-    //code for no repsonse reutned goes here -- ideally do not use alert BUT code below would technically work
-    //error => alert(`${error.message}`)
-  })
-}
-
-export {
-  getData
+    .then((response) => {
+      if (!response.ok) {
+        if (response.status >= 500) {
+          throw new Error('Oops, the server is temporarily down. Please try again later.');
+        } else {
+          throw new Error('Oops! Something went wrong on your end. Please check your network connection and try again.');
+        }
+      }
+      return response.json();
+    });
 };
+
+export { getData };
+
+
+
 

@@ -1,1 +1,8 @@
 
+.error-message {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 30px;
+  margin: 50px;
+  margin-top: 70px;
+  text-align: center;
+}
