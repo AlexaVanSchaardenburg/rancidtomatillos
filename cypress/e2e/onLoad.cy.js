@@ -36,7 +36,7 @@ describe('main page/all movies view', () => {
 
 describe('main page/all movies view', () => {
 
-    // test that when a server-side (5XX) error is thrown, the user is shown a server-side error message & nothing else
+  // test that when a server-side (5XX) error is thrown, the user is shown a server-side error message & nothing else
 
   it('displays a server-side error message', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
@@ -48,14 +48,32 @@ describe('main page/all movies view', () => {
     cy.wait('@getMovies').then((interception) => {
       expect(interception.response.statusCode).to.equal(500);
     });
-  
+
     cy.contains('.error-message', 'Oops, the server is temporarily down. Please try again later.')
       .should('be.visible');
-  
+
     cy.get('.movie-card').should('not.exist');
   });
 
-    // test that when there is a client-side error (4XX), the user is shown a different message
+  // test that when there is a client-side error (4XX), the user is shown a different message
 
+  it('displays a client-side error message', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 404,
+      body: 'Not Found'
+    }).as('getMovies');
+
+    cy.visit('http://localhost:3000/');
+
+    cy.wait('@getMovies').then((interception) => {
+      expect(interception.response.statusCode).to.equal(404);
+    });
+
+    cy.contains('.error-message', 'Oops! Something went wrong on your end. Please check your network connection and try again.')
+      .should('be.visible');
+
+    cy.get('.movie-card').should('not.exist');
+  });
+  
 });
 
