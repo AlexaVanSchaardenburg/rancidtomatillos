@@ -44,11 +44,18 @@ describe('main page/all movies view', () => {
       body: 'Internal Server Error'
     }).as('getMovies');
     cy.visit('http://localhost:3000/');
+
+    cy.wait('@getMovies').then((interception) => {
+      expect(interception.response.statusCode).to.equal(500);
+    });
+  
+    cy.contains('.error-message', 'Oops, the server is temporarily down. Please try again later.')
+      .should('be.visible');
+  
+    cy.get('.movie-card').should('not.exist');
   });
 
-
-
-
-  // test that when there is a client-side error (4XX), the user is shown a different message
+    // test that when there is a client-side error (4XX), the user is shown a different message
 
 });
+
