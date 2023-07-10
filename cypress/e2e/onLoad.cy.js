@@ -13,6 +13,11 @@ describe('main page/all movies view', () => {
 
   // test that the logo is shown on page load
 
+  it('displays the app logo on page load', () => {
+    cy.get('img.logo').should('be.visible');
+  });
+  
+
   // test that i see the movie collection
 
   // test that the movieCards contain the right information
