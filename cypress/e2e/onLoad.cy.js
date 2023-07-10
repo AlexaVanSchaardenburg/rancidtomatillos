@@ -49,8 +49,12 @@ describe('main page/all movies view', () => {
       expect(interception.response.statusCode).to.equal(500);
     });
 
+    // verify the correct error message is displayed
+
     cy.contains('.error-message', 'Oops, the server is temporarily down. Please try again later.')
       .should('be.visible');
+
+      // verify that the movie-cards are no longer showing
 
     cy.get('.movie-card').should('not.exist');
   });
@@ -69,11 +73,15 @@ describe('main page/all movies view', () => {
       expect(interception.response.statusCode).to.equal(404);
     });
 
+    // verify the correct error message is displayed
+    
     cy.contains('.error-message', 'Oops! Something went wrong on your end. Please check your network connection and try again.')
       .should('be.visible');
 
+      // verify that the movie-cards are no longer showing
+
     cy.get('.movie-card').should('not.exist');
   });
-  
+
 });
 
