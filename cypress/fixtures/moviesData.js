@@ -1,5 +1,5 @@
-{
-  movies: [
+const moviesData = {
+  "movies": [
       {
           "id": 436270,
           "poster_path": "https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
@@ -26,3 +26,5 @@
       }
     ]
   }
+
+  export default moviesData;
