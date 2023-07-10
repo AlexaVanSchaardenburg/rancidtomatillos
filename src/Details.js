@@ -1,4 +1,5 @@
 import './Details.css';
+import PropTypes from 'prop-types';
 
 const Details = ({ movie }) => {
 
@@ -29,5 +30,20 @@ const Details = ({ movie }) => {
     </article>
   )
 }
+
+Details.propTypes = {
+  movie: PropTypes.shape({
+    release_date: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    runtime: PropTypes.number.isRequired,
+    tagline: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+    budget: PropTypes.number.isRequired,
+    revenue: PropTypes.number.isRequired,
+  }).isRequired,
+};
 
 export default Details;

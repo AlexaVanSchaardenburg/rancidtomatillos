@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './MovieCard.css';
 
 const MovieCard = ({ movie, onClick }) => {
@@ -16,6 +17,16 @@ const MovieCard = ({ movie, onClick }) => {
       </div>
     </button>
   );
+};
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    release_date: PropTypes.string.isRequired,
+    average_rating: PropTypes.number.isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 
