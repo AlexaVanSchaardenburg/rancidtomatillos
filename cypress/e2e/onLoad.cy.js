@@ -1,12 +1,14 @@
 import moviesData from "../fixtures/moviesData";
 
+// HAPPY PATH //
+
 describe('main page/all movies view', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 200,
-      fixture: moviesData
+      body: moviesData
     });
-    cy.visit('/');
+    cy.visit('http://localhost:3000/');
   });
 
   // test that the logo is shown on page load
