@@ -22,10 +22,10 @@ describe('Test that user can click on a movie to view more details', () => {
     });
 
     cy.visit('http://localhost:3000/')
-    cy.get('.movie-card').first().click()
   });
 
   it('Should show the user movie details', () => {
+    cy.get('.movie-card').first().click()
     cy.get('nav')
       // .contains('img')
       // .contains('button')
@@ -62,15 +62,48 @@ describe('Test that user can click on a movie to view more details', () => {
   });
 
   it("should show the user details for a diifferent movie", () => {
-    
+    cy.get('.movie-card').last().click()
+
+//NEED TO MAKE DATA MATCH THE LAST MOVIE OBJECT DATA - movie2Data
+
+  //   cy.get('nav')
+  //   // .contains('img')
+  //   // .contains('button')
+  // cy.get('.details-page')
+  //   // .contains('img') for the background photo
+  // cy.get('.info')
+  //   // .contains('img')
+  // cy.get('.movie-overview-section')
+  //   .contains('h1', 'Black Adam')
+  //   // .contains('p', 'The world needed a hero. It got Black Adam.')
+  //   // .contains('p', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
+  // cy.get('.date-and-runtime')
+  //   .contains('p', '2022')
+  //   // .contains('p', '125 min')
+  // cy.get('.movie-rating-section')
+  //   .contains('h3', 'Rating: 4/10')
+  //   // .contains('p', 'Movie Budget:')
+  //   // .contains('p', '$200000000')
+  //   // .contains('p', 'Movie Revenue:')
+  //   // .contains('p', '$384571691')
+  });
+});
+
+describe('Displays error messaging', () => {
+
+  beforeEach(() => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 200,
+      body: moviesData
+    });
+    cy.visit('http://localhost:3000/')
   });
 
-  it("Should display an informational error message if the fetch call fails (500)", () => {
-    
-  });
+  it('Should display a 500 level error message for the user', () => {
 
-  it("Should display an informational error message if the client fails to make the fetch call (400)", () => {
-    
+  });
+  it('Should display a 400 level error message for the user', () => {
+
   });
 });
 
