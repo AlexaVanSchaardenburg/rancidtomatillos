@@ -3,29 +3,22 @@ import moviesData from "../fixtures/moviesData";
 
 describe('Test that user can click on a movie to view more details', () => {
 
-  //intercept the fetch call for all movies
   //would be interesting to see if I could write a helper function that would write the intercept based off of the card that was clicked - should in theory work because the card that is clicked 
 beforeEach(() => {
   //FOR ALL MOVIES
-  cy.intercept('GET', 'url for all movies', {
+  cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
     statusCode: 200,
-    body: {
-      //mock data here or figure out how to use a fixture
-    }
+    body: moviesData
   });
 //FOR SPECIFIC MOVIE #1
-  cy.intercept('GET', 'url for specific movie', {
+  cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
     statusCode: 200,
-    body: {
-      //mock data here or figure out how to use a fixture
-    }
+    body: movie1Data
   });
 //FOR SPECIFIC MOVIE #2
-  cy.intercept('GET', 'url for other specific movie', {
+  cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/1013860', {
     statusCode: 200,
-    body: {
-      //mock data here or figure out how to use a fixture
-    }
+    body: movie2Data
   });
 //VISIT THE PAGE
   cy.visit('http://localhost:3000/')
