@@ -8,7 +8,7 @@ const MovieCard = ({ movie, onClick }) => {
   const roundedRating = Math.round(average_rating * 10) / 10;
 
   return (
-    <button className="movie-card" onClick={onClick}>
+    <button className="movie-card" id="" onClick={onClick}>
       <img className="movie-poster" src={poster_path} alt={title} />
       <div className="movie-details">
         <h2>{title}</h2>
