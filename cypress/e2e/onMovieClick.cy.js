@@ -11,10 +11,10 @@ describe('Test that user can click on a movie to view more details', () => {
       body: moviesData
     });
 
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
-      statusCode: 200,
-      body: movie1Data
-    });
+    // cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+    //   statusCode: 200,
+    //   body: movie1Data
+    // });
 
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/1013860', {
       statusCode: 200,
@@ -22,26 +22,57 @@ describe('Test that user can click on a movie to view more details', () => {
     });
 
     cy.visit('http://localhost:3000/')
+    cy.get('.movie-card').first().click()
   });
 
   it('Should show the user movie details', () => {
-      // click the first movie -- put the movie card id as the get parameter
-    cy.get().click()
-      //check that the nav is there and has the title image and the home button
-    cy.get('img.logo').should('be.visibile')
-      //check that there is a backgorund photo
-      //check that there is the cover photo, title, year, runtime, tagline, description, rating, budget, budget number, revenue, revenue number
-  })
+    cy.get('nav')
+      // .contains('img')
+      // .contains('button')
+    cy.get('.details-page')
+      // .contains('img') for the background photo
+    cy.get('.info')
+      // .contains('img')
+    cy.get('.movie-overview-section')
+      .contains('h1', 'Black Adam')
+      // .contains('p', 'The world needed a hero. It got Black Adam.')
+      // .contains('p', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
+    cy.get('.date-and-runtime')
+      .contains('p', '2022')
+      // .contains('p', '125 min')
+    cy.get('.movie-rating-section')
+      .contains('h3', 'Rating: 4/10')
+      // .contains('p', 'Movie Budget:')
+      // .contains('p', '$200000000')
+      // .contains('p', 'Movie Revenue:')
+      // .contains('p', '$384571691')
+      /*check that there is the: 
+      background photo, 
+      cover photo, 
+      title✅, 
+      year✅, 
+      runtime✅, 
+      tagline✅, 
+      description✅, 
+      rating✅, 
+      budget✅, 
+      budget number✅, 
+      revenue✅, 
+      revenue number✅*/
+  });
+
   it("should show the user details for a diifferent movie", () => {
     
-  })
+  });
+
   it("Should display an informational error message if the fetch call fails (500)", () => {
     
-  })
+  });
+
   it("Should display an informational error message if the client fails to make the fetch call (400)", () => {
     
-  })
-})
+  });
+});
 
 //TO DO TO WRITE TESTING
   //Set up mock data file
