@@ -30,5 +30,11 @@ const movie2Data ={
     "revenue":78324220,
     "runtime":102,
     "tagline":"Meet the new law of the Afterlife.",
-    "average_rating":7}
+    "average_rating":7
+  }
 };
+
+export {
+  movie2Data,
+  movie1Data
+}
