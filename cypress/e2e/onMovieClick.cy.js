@@ -3,7 +3,6 @@ import moviesData from "../fixtures/moviesData";
 
 describe('Test that user can click on a movie to view more details', () => {
 
-  //would be interesting to see if I could write a helper function that would write the intercept based off of the card that was clicked - should in theory work because the card that is clicked 
   beforeEach(() => {
 
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
@@ -37,10 +36,8 @@ describe('Test that user can click on a movie to view more details', () => {
     cy.get('.home-icon').should('be.visible')
 
     //checks if there is a background image and cover image
-    // cy.get('.img.background-image')
-      // .contains('img') for the background photo
-    // cy.get('.info')
-      // .contains('img')
+    cy.get('img.backdrop-image').should('be.visible')
+    cy.get('img.cover-image').should('be.visible')
     
     //checks if the title, tagline, description, release year, runtime, rating, budget header, budget total, revenue header and revenue total are all in the page
     cy.get('.movie-overview-section').contains('h1', 'Black Adam')
@@ -100,8 +97,21 @@ describe('Displays error messaging', () => {
 
   it('Should display a 500 level error message for the user', () => {
     //intercpet with 500 here
-    //click on the first movie card
-    //check that the error message is visible
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+      statusCode: 500,
+      body: 'Not Found'
+    }).as('getMovies');
+
+    //click on the movie
+    cy.get('.movie-card').first().click();
+
+    cy.wait('@getMovies').then((interception) => {
+      expect(interception.response.statusCode).to.equal(500);
+    });
+
+    // verify the correct error message is displayed
+    cy.contains('.error-message', 'Oops, the server is temporarily down. Please try again later.')
+      .should('be.visible');
   });
   it('Should display a 400 level error message for the user', () => {
     //intercpet with 404
