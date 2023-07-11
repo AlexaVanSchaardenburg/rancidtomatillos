@@ -1,6 +1,10 @@
+import { movie1Data, movie2Data } from '../fixtures/movieData';
+import moviesData from "../fixtures/moviesData";
+
 describe('Test that user can click on a movie to view more details', () => {
 
   //intercept the fetch call for all movies
+  //would be interesting to see if I could write a helper function that would write the intercept based off of the card that was clicked - should in theory work because the card that is clicked 
 beforeEach(() => {
   //FOR ALL MOVIES
   cy.intercept('GET', 'url for all movies', {
