@@ -25,82 +25,74 @@ describe('Test that user can click on a movie to view more details', () => {
   });
 
   it('Should show the user movie details', () => {
+    //clicks on the first movie in the array - Black Adam
     cy.get('.movie-card').first().click()
-    cy.get('nav')
-      // .contains('img')
-      // .contains('button')
-    cy.get('.details-page')
+
+    //checks that the details page is displayind the movie cards are not visible
+    cy.get('.details-page').should('be.visible');
+    cy.get('.movie-card').should('not.exist');
+
+    //checks that the nav is still visible and the home button is displayed
+    cy.get('img.logo').should('be.visible')
+    cy.get('.home-icon').should('be.visible')
+
+    //checks if there is a background image and cover image
+    // cy.get('.img.background-image')
       // .contains('img') for the background photo
-    cy.get('.info')
+    // cy.get('.info')
       // .contains('img')
-    cy.get('.movie-overview-section')
-      .contains('h1', 'Black Adam')
-      // .contains('p', 'The world needed a hero. It got Black Adam.')
-      // .contains('p', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
-    cy.get('.date-and-runtime')
-      .contains('p', '2022')
-      // .contains('p', '125 min')
-    cy.get('.movie-rating-section')
-      .contains('h3', 'Rating: 4/10')
-      // .contains('p', 'Movie Budget:')
-      // .contains('p', '$200000000')
-      // .contains('p', 'Movie Revenue:')
-      // .contains('p', '$384571691')
-      /*check that there is the: 
-      background photo, 
-      cover photo, 
-      title✅, 
-      year✅, 
-      runtime✅, 
-      tagline✅, 
-      description✅, 
-      rating✅, 
-      budget✅, 
-      budget number✅, 
-      revenue✅, 
-      revenue number✅*/
+    
+    //checks if the title, tagline, description, release year, runtime, rating, budget header, budget total, revenue header and revenue total are all in the page
+    cy.get('.movie-overview-section').contains('h1', 'Black Adam')
+    cy.get('.movie-overview-section').contains('p', 'The world needed a hero. It got Black Adam.')
+    cy.get('.movie-overview-section').contains('p', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
+    cy.get('.date-and-runtime').contains('p', '2022')
+    cy.get('.date-and-runtime').contains('p', '125 min')
+    cy.get('.movie-rating-section').contains('h3', 'Rating: 4/10')
+    cy.get('.movie-rating-section').contains('p', 'Movie Budget:')
+    cy.get('.movie-rating-section').contains('p', '$200000000')
+    cy.get('.movie-rating-section').contains('p', 'Movie Revenue:')
+    cy.get('.movie-rating-section').contains('p', '$384571691')
   });
 
   it("should show the user details for a diifferent movie", () => {
-    cy.get('.movie-card').last().click()
+        //clicks on the first movie in the array - Black Adam
+        cy.get('.movie-card').last().click()
 
-//NEED TO MAKE DATA MATCH THE LAST MOVIE OBJECT DATA - movie2Data
-
-  //   cy.get('nav')
-  //   // .contains('img')
-  //   // .contains('button')
-  // cy.get('.details-page')
-  //   // .contains('img') for the background photo
-  // cy.get('.info')
-  //   // .contains('img')
-  // cy.get('.movie-overview-section')
-  //   .contains('h1', 'Black Adam')
-  //   // .contains('p', 'The world needed a hero. It got Black Adam.')
-  //   // .contains('p', 'Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb, ready to unleash his unique form of justice on the modern world.')
-  // cy.get('.date-and-runtime')
-  //   .contains('p', '2022')
-  //   // .contains('p', '125 min')
-  // cy.get('.movie-rating-section')
-  //   .contains('h3', 'Rating: 4/10')
-  //   // .contains('p', 'Movie Budget:')
-  //   // .contains('p', '$200000000')
-  //   // .contains('p', 'Movie Revenue:')
-  //   // .contains('p', '$384571691')
+        //checks that the details page is displayind the movie cards are not visible
+        cy.get('.details-page').should('be.visible');
+        cy.get('.movie-card').should('not.exist');
+    
+        //checks that the nav is still visible and the home button is displayed
+        cy.get('img.logo').should('be.visible')
+        cy.get('.home-icon').should('be.visible')
+    
+        //checks if there is a background image and cover image
+        // cy.get('.img.background-image')
+          // .contains('img') for the background photo
+        // cy.get('.info')
+          // .contains('img')
+        
+        //checks if the title, tagline, description, release year, runtime, rating, budget header, budget total, revenue header and revenue total are all in the page
+        cy.get('.movie-overview-section').contains('h1', 'R.I.P.D. 2: Rise of the Damned')
+        cy.get('.movie-overview-section').contains('p', 'Meet the new law of the Afterlife.')
+        cy.get('.movie-overview-section').contains('p', 'When Sheriff Roy Pulsipher finds himself in the afterlife, he joins a special police force and returns to Earth to save humanity from the undead.')
+        cy.get('.date-and-runtime').contains('p', '2022')
+        cy.get('.date-and-runtime').contains('p', '102 min')
+        cy.get('.movie-rating-section').contains('h3', 'Rating: 7/10')
+        cy.get('.movie-rating-section').contains('p', 'Movie Budget:')
+        cy.get('.movie-rating-section').contains('p', '$130')
+        cy.get('.movie-rating-section').contains('p', 'Movie Revenue:')
+        cy.get('.movie-rating-section').contains('p', '$78324220')
   });
 });
 
 describe('Displays error messaging', () => {
 
-  beforeEach(() => {
-    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-      statusCode: 200,
-      body: moviesData
-    });
-    cy.visit('http://localhost:3000/')
-  });
-
   it('Should display a 500 level error message for the user', () => {
-
+    //intercpet with 500 here
+    //click on the first movie card
+    //
   });
   it('Should display a 400 level error message for the user', () => {
 
