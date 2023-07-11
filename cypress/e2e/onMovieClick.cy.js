@@ -4,31 +4,31 @@ import moviesData from "../fixtures/moviesData";
 describe('Test that user can click on a movie to view more details', () => {
 
   //would be interesting to see if I could write a helper function that would write the intercept based off of the card that was clicked - should in theory work because the card that is clicked 
-beforeEach(() => {
-  //FOR ALL MOVIES
-  cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-    statusCode: 200,
-    body: moviesData
+  beforeEach(() => {
+
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+      statusCode: 200,
+      body: moviesData
+    });
+
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+      statusCode: 200,
+      body: movie1Data
+    });
+
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/1013860', {
+      statusCode: 200,
+      body: movie2Data
+    });
+
+    cy.visit('http://localhost:3000/')
   });
-//FOR SPECIFIC MOVIE #1
-  cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
-    statusCode: 200,
-    body: movie1Data
-  });
-//FOR SPECIFIC MOVIE #2
-  cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/1013860', {
-    statusCode: 200,
-    body: movie2Data
-  });
-//VISIT THE PAGE
-  cy.visit('http://localhost:3000/')
-})
 
   it('Should show the user movie details', () => {
       // click the first movie -- put the movie card id as the get parameter
     cy.get().click()
       //check that the nav is there and has the title image and the home button
-    cy.get('.nav-container').contains('img')
+    cy.get('img.logo').should('be.visibile')
       //check that there is a backgorund photo
       //check that there is the cover photo, title, year, runtime, tagline, description, rating, budget, budget number, revenue, revenue number
   })

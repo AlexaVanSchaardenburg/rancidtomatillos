@@ -1,5 +1,5 @@
 const movie1Data = {
-  {"movie": {
+  "movie": {
     "id":436270,
     "title":"Black Adam",
     "poster_path":"https://image.tmdb.org/t/p/original//pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg",
@@ -11,11 +11,11 @@ const movie1Data = {
     "revenue":384571691,
     "runtime":125,
     "tagline":"The world needed a hero. It got Black Adam.",
-    "average_rating":4}}
+    "average_rating":4}
 };
 
 const movie2Data ={
-  {"movie":{
+  "movie":{
     "id":1013860,
     "title":"R.I.P.D. 2: Rise of the Damned","poster_path":"https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg",
     "backdrop_path":"https://image.tmdb.org/t/p/original//kmzppWh7ljL6K9fXW72bPN3gKwu.jpg",
@@ -26,5 +26,5 @@ const movie2Data ={
     "revenue":78324220,
     "runtime":102,
     "tagline":"Meet the new law of the Afterlife.",
-    "average_rating":7}}
+    "average_rating":7}
 };
