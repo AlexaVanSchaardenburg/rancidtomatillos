@@ -1,19 +1,20 @@
 import './Details.css';
 import { useState, useEffect } from 'react';
 import { getData } from './apiCalls.js';
+//I am importing useParams here 
 import { useParams } from 'react-router-dom'
 
 const Details = () => {
 
-  // const [showMovieDetails, setShowMovieDetails] = useState(false);
+  //Here I brought the states for the individual movie and the error handling
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
 
+  //here I define id as the parameter passed in the path of the route used to get to this component - it is returned as an object with a key of id where the value of that id is the id of the movie we need to fetch
   const id = useParams().id
 
-  //I am getting the id from use Params but it is not accessbile in the useEffect???
-
   useEffect(() => {
+    //I now have the fetch call for getting the individual movie data here in the useEffect so it is run on state change
     getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then((data) => {
         setMovie(data.movie);
@@ -22,6 +23,10 @@ const Details = () => {
         setError(error);
       });
   });
+
+  //I added a conditonal rendering to the return statement below that checks if the movie state has been updated - if it has it displays the details just like it did before, if it hasn't then it displays a p tag I added that says loading
+
+  //the conditional rendering is important becasue if you try to display the details right away the fetch does not have time to load and I got a runtime error - with this set up the conditonal gives the component soemthing to run, and then relaods when the state changes from the completed fetch request to render all teh details. 
 
   return (
     <>
@@ -58,6 +63,7 @@ const Details = () => {
 export default Details;
 
 /* 
+STEPS I FOLLOWED TO REFACOTR THIS COMPONENT
 1. move the fetch call to the details component
 3. add state to set the movie data
 4. refactor to include condtional logic
