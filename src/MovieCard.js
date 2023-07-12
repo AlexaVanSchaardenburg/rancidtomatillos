@@ -27,7 +27,6 @@ MovieCard.propTypes = {
     release_date: PropTypes.string.isRequired,
     average_rating: PropTypes.number.isRequired,
   }).isRequired,
-  onClick: PropTypes.func.isRequired,
 };
 
 
