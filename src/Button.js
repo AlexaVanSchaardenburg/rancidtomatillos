@@ -1,17 +1,13 @@
-import PropTypes from 'prop-types';
 import './Button.css';
 import homeIcon from './assets/home-icon.png';
+import { NavLink } from 'react-router-dom'
 
-const Button = ({ onClick }) => {
+const Button = () => {
   return (
-    <button className="button" onClick={onClick}>
+    <NavLink to="/" className="button">
       <img className="home-icon" src={homeIcon} alt="Home Button" />
-    </button>
+    </NavLink>
   );
-};
-
-Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;

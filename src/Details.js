@@ -1,5 +1,4 @@
 import './Details.css';
-// import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { getData } from './apiCalls.js';
 import { useParams } from 'react-router-dom'
