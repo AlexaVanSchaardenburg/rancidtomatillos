@@ -8,21 +8,21 @@ import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom'
 
 const App = () => {
-  const [showMovieDetails, setShowMovieDetails] = useState(false);
+  // const [showMovieDetails, setShowMovieDetails] = useState(false);
   const [allMovies, setAllMovies] = useState([]);
-  const [individualMovie, setIndividualMovie] = useState([]);
+  // const [individualMovie, setIndividualMovie] = useState([]);
   const [error, setError] = useState(null);
 
-  const handleMovieClick = (id) => {
-    getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then((data) => {
-        setIndividualMovie(data);
-        setShowMovieDetails(true);
-      })
-      .catch((error) => {
-        setError(error);
-      });
-  };
+  // const handleMovieClick = (id) => {
+  //   getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+  //     .then((data) => {
+  //       setIndividualMovie(data);
+  //       setShowMovieDetails(true);
+  //     })
+  //     .catch((error) => {
+  //       setError(error);
+  //     });
+  // };
 
   useEffect(() => {
     getData('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
@@ -34,9 +34,9 @@ const App = () => {
       });
   }, []);
 
-  const handleReturnToMain = () => {
-    setShowMovieDetails(false);
-  };
+  // const handleReturnToMain = () => {
+  //   setShowMovieDetails(false);
+  // };
 
   const allMoviesView = (movies) => {
     //thinking we may break this function out into it's own component?
@@ -47,7 +47,7 @@ const App = () => {
             key={movie.id}
             id={movie.id}
             movie={movie}
-            onClick={() => handleMovieClick(movie.id)}
+            // onClick={() => handleMovieClick(movie.id)}
           />
         ))}
       </div>
@@ -59,7 +59,7 @@ const App = () => {
       <Nav />
       <Routes >
         <Route path="/" element={allMoviesView(allMovies)} />
-        <Route path="/:id" element={<Details movie={individualMovie.movie} />} />
+        <Route path="/:id" element={<Details />} />
         //I think the async js is causing the error - aka route runs before the fetch come back and then we get a runtime error
         //need to dig into how the fetch was working before hand to better understadn hwo I prevented that and then apply that to the link
         //isnt working because the link click has immediate effects and the fetch doesn't have time
