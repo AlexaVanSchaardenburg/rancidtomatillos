@@ -39,6 +39,7 @@ const App = () => {
   };
 
   const allMoviesView = (movies) => {
+    //thinking we may break this function out into it's own component?
     return (
       <div className="movie-card-grid">
         {movies.map((movie) => (
@@ -58,7 +59,11 @@ const App = () => {
       <Nav />
       <Routes >
         <Route path="/" element={allMoviesView(allMovies)} />
-        {/* <Route path="/:id" element={} /> */}
+        <Route path="/:id" element={<Details movie={individualMovie.movie} />} />
+        //I think the async js is causing the error - aka route runs before the fetch come back and then we get a runtime error
+        //need to dig into how the fetch was working before hand to better understadn hwo I prevented that and then apply that to the link
+        //isnt working because the link click has immediate effects and the fetch doesn't have time
+        //potential fix = put the fetch in the details component - have the component render a loading symbol of some kind - then when the fetch returns replace that loading symbol with the data
       </Routes>
     </>
   )

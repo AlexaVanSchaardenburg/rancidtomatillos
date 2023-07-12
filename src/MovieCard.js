@@ -1,21 +1,22 @@
 import PropTypes from 'prop-types';
 import './MovieCard.css';
+import { Link } from 'react-router-dom'
 
 const MovieCard = ({ movie, onClick }) => {
 
-  const { title, poster_path, release_date, average_rating } = movie;
+  const { title, poster_path, release_date, average_rating, id } = movie;
 
   const roundedRating = Math.round(average_rating * 10) / 10;
 
   return (
-    <button className="movie-card" id="" onClick={onClick}>
+    <Link to={`/${id}`} className="movie-card" id="" onClick={onClick}>
       <img className="movie-poster" src={poster_path} alt={title} />
       <div className="movie-details">
         <h2>{title}</h2>
         <p>{release_date.split("-")[0]}</p>
         <p>Rating: {roundedRating}/10</p>
       </div>
-    </button>
+    </Link >
   );
 };
 
