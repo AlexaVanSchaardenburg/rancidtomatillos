@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 const Button = () => {
   return ( 
-    <NavLink to="/" className="button">
+    <NavLink to="/" id="button" className={(navState) => navState.isActive ? "active" : "" } >______
       <img className="home-icon" src={homeIcon} alt="Home Button" />
     </NavLink>
   );
