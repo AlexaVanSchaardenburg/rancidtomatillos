@@ -1,4 +1,5 @@
 import moviesData from "../fixtures/moviesData";
+import { movie1Data } from '../fixtures/movieData.js'
 
 describe('Returning to the main page', () => {
   beforeEach(() => {
@@ -6,6 +7,10 @@ describe('Returning to the main page', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       body: moviesData
     });
+    // cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/436270', {
+    //   statusCode: 200,
+    //   body: movie1Data
+    // });
     cy.visit('http://localhost:3000/');
   });
 
