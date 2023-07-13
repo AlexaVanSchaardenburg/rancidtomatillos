@@ -41,7 +41,7 @@ describe('Check route for navigation from Details page to home page via the home
 
   it('should navigate to the correct route when the home button is clicked', () => {
 
-    cy.get('.button').click();
+    cy.get('#button').click();
 
     cy.url().should('eq', 'http://localhost:3000/')
   })
