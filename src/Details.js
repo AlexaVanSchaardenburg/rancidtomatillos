@@ -21,7 +21,7 @@ const Details = () => {
         console.log(error)
         setError(error);
       });
-  }, [id]);
+  }, []);
 
   return (
     <>
