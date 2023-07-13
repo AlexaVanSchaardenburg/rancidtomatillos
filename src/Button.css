@@ -1,9 +1,11 @@
 .home-icon {
   height: 50px;
   width: 50px;
+  margin-top: .25rem;
+  
 }
 
-.button {
+#button {
   background-color: #180047;
   padding: 0;
   border: none;
@@ -11,6 +13,11 @@
   margin-left: 450px;
 }
 
-.button:hover {
+#button:hover {
   cursor: grab;
+}
+
+.active {
+  text-decoration: underline;
+  color:#E65CA2
 }
