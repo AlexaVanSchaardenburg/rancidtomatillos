@@ -17,12 +17,14 @@ const Details = () => {
     //I now have the fetch call for getting the individual movie data here in the useEffect so it is run on state change
     getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then((data) => {
+        console.log(data)
         setMovie(data.movie);
       })
       .catch((error) => {
+        console.log(error)
         setError(error);
       });
-  });
+  }, [id]);
 
   //I added a conditonal rendering to the return statement below that checks if the movie state has been updated - if it has it displays the details just like it did before, if it hasn't then it displays a p tag I added that says loading
 
@@ -30,34 +32,40 @@ const Details = () => {
 
   return (
     <>
-    {movie
-    ? (
-      <article className="details-page">
-        <img src={movie.backdrop_path} alt={`Backdrop Image for ${movie.title}`} className="backdrop-image"></img>
-        <div className="info">
-          <img src={movie.poster_path} alt={`Cover Image for ${movie.title}`} className="cover-image"></img>
-          <div className="movie-overview-section">
-            <h1>{movie.title}</h1>
-            <div className="date-and-runtime">
-              <p>{movie.release_date}</p>
-              <p>{movie.runtime} min</p>
-            </div>
-            <p>{movie.tagline}</p>
-            <p>{movie.overview}</p>
-          </div>
-          <div className="movie-rating-section">
-            <h3>Rating: {movie.average_rating}/10</h3>
-            <p>Movie Budget:</p>
-            <p>${movie.budget}</p>
-            <p>Movie Revenue:</p>
-            <p>${movie.revenue}</p>
-          </div>
-        </div>
-      </article>
-    )
-  : <p>loading...</p>}
+      {error ? (
+        <div className='error-message'>Error: {error.message}</div>
+      ) : (
+        <>
+          {movie ? (
+            <article className="details-page">
+              <img src={movie.backdrop_path} alt={`Backdrop Image for ${movie.title}`} className="backdrop-image" />
+              <div className="info">
+                <img src={movie.poster_path} alt={`Cover Image for ${movie.title}`} className="cover-image" />
+                <div className="movie-overview-section">
+                  <h1>{movie.title}</h1>
+                  <div className="date-and-runtime">
+                    <p>{movie.release_date}</p>
+                    <p>{movie.runtime} min</p>
+                  </div>
+                  <p>{movie.tagline}</p>
+                  <p>{movie.overview}</p>
+                </div>
+                <div className="movie-rating-section">
+                  <h3>Rating: {movie.average_rating}/10</h3>
+                  <p>Movie Budget:</p>
+                  <p>${movie.budget}</p>
+                  <p>Movie Revenue:</p>
+                  <p>${movie.revenue}</p>
+                </div>
+              </div>
+            </article>
+          ) : (
+            <p>loading...</p>
+          )}
+        </>
+      )}
     </>
-  )
+  );  
 };
 
 export default Details;

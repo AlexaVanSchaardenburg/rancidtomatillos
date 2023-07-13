@@ -43,15 +43,19 @@ const App = () => {
   return (
     <>
       <Nav />
-      {/* The routes component below defines all of the routes in the app// */}
-      <Routes >
-        {/* The route below is the home page and the default for the app to start on. The element for the home page is the invocation of the mapping functiona above and displays all the movie cards - important that it's path is just the '/'} */}
-        <Route path="/" element={allMoviesView(allMovies)} />
-      {/* {  //The route below this is the path for the details page - the element is the Details component which no longer needs any props, and the path is dynamic with anything after the colon beign dynamic. In this case the id is determined in the MovieCard componenet and is explained more there.} */}
-        <Route path="/:id" element={<Details />} />
-      </Routes>
+      {error ? (
+        <div className='error-message'>Error: {error.message}</div>
+      ) : (
+        <Routes>
+          {/* The route below is the home page and the default for the app to start on. The element for the home page is the invocation of the mapping functiona above and displays all the movie cards - important that it's path is just the '/'} */}
+          <Route path="/" element={allMoviesView(allMovies)} />
+          {/* {  //The route below this is the path for the details page - the element is the Details component which no longer needs any props, and the path is dynamic with anything after the colon beign dynamic. In this case the id is determined in the MovieCard componenet and is explained more there.} */}
+          <Route path="/:id" element={<Details />} />
+        </Routes>
+      )}
     </>
-  )
-};
+  );
+}
+  
 
 export default App;
