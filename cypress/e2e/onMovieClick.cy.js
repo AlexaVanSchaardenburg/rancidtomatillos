@@ -45,30 +45,30 @@ describe('Test that user can click on a movie to view more details', () => {
   });
 
   it("should show the user details for a diifferent movie", () => {
-        cy.get('.movie-card').last().click()
-        cy.get('.details-page').should('be.visible');
-        cy.get('.movie-card').should('not.exist');
-        cy.get('img.logo').should('be.visible')
-        cy.get('.home-icon').should('be.visible')
-        cy.get('img.backdrop-image').should('be.visible')
-        cy.get('img.cover-image').should('be.visible')
-        cy.get('.movie-overview-section').contains('h1', 'R.I.P.D. 2: Rise of the Damned')
-        cy.get('.movie-overview-section').contains('p', 'Meet the new law of the Afterlife.')
-        cy.get('.movie-overview-section').contains('p', 'When Sheriff Roy Pulsipher finds himself in the afterlife, he joins a special police force and returns to Earth to save humanity from the undead.')
-        cy.get('.date-and-runtime').contains('p', '2022')
-        cy.get('.date-and-runtime').contains('p', '102 min')
-        cy.get('.movie-rating-section').contains('h3', 'Rating: 7/10')
-        cy.get('.movie-rating-section').contains('p', 'Movie Budget:')
-        cy.get('.movie-rating-section').contains('p', '$130')
-        cy.get('.movie-rating-section').contains('p', 'Movie Revenue:')
-        cy.get('.movie-rating-section').contains('p', '$78324220')
+    cy.get('.movie-card').last().click()
+    cy.get('.details-page').should('be.visible');
+    cy.get('.movie-card').should('not.exist');
+    cy.get('img.logo').should('be.visible')
+    cy.get('.home-icon').should('be.visible')
+    cy.get('img.backdrop-image').should('be.visible')
+    cy.get('img.cover-image').should('be.visible')
+    cy.get('.movie-overview-section').contains('h1', 'R.I.P.D. 2: Rise of the Damned')
+    cy.get('.movie-overview-section').contains('p', 'Meet the new law of the Afterlife.')
+    cy.get('.movie-overview-section').contains('p', 'When Sheriff Roy Pulsipher finds himself in the afterlife, he joins a special police force and returns to Earth to save humanity from the undead.')
+    cy.get('.date-and-runtime').contains('p', '2022')
+    cy.get('.date-and-runtime').contains('p', '102 min')
+    cy.get('.movie-rating-section').contains('h3', 'Rating: 7/10')
+    cy.get('.movie-rating-section').contains('p', 'Movie Budget:')
+    cy.get('.movie-rating-section').contains('p', '$130')
+    cy.get('.movie-rating-section').contains('p', 'Movie Revenue:')
+    cy.get('.movie-rating-section').contains('p', '$78324220')
   });
 });
 
 describe('Displays error messaging', () => {
 
   beforeEach(() => {
-
+    
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
       statusCode: 200,
       body: moviesData

@@ -35,7 +35,7 @@ const Details = () => {
               <div className="info">
                 <img src={movie.poster_path} alt={`Cover Image for ${movie.title}`} className="cover-image" />
                 <div className="movie-overview-section">
-                  <h1>{movie.title}</h1>
+                  <h1 className='movie-title'>{movie.title}</h1>
                   <div className="date-and-runtime">
                     <p>{movie.release_date}</p>
                     <p>{movie.runtime} min</p>
