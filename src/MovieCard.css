@@ -25,20 +25,17 @@
   font-weight: bold;
   width: 8rem;
   text-align: center;
-  /* color: #E65CA2; */
   color: #180047;
 }
 
 .all-movies-release-date {
   font-size: 0.85rem;
-  /* color: #E65CA2; */
   color: #180047;
 }
 
 .all-movies-rating {
   font-size: 1rem;
   width: 8rem;
-  /* color: #E65CA2; */
   color: #180047;
 }
 

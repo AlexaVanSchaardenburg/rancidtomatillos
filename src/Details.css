@@ -2,12 +2,43 @@
     color: white;
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-end; */
-    /* align-items: center; */
+    justify-content: flex-end;
     background: #180047;
-    /* width: 100%; */
-    /* border: solid yellow 2px; */
     height: 100%;
+}
+
+.backdrop-image{
+    position: relative;
+    height: 100%;
+}
+
+.info {
+    background: linear-gradient(rgba(24,0,71,0), rgba(24,0,71,1));
+    height: 60%;
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    font-size: 1em;
+}
+
+.movie-title{
+    font-size: 1.3em;
+    width: 100%;
+}
+
+.cover-image{
+    height: 60%;
+    border-radius: 15px;
+}
+
+.date-and-runtime{
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-overview-section{
+    width: 40%;
 }
 
 footer{
@@ -18,45 +49,29 @@ footer{
     height: 10em;
 }
 
-.info {
-    background: linear-gradient(rgba(24,0,71,0), rgba(24,0,71,1));
-    width: 100%;
-    height: 100%;
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    /* border: 2px blue solid; */
+@media screen and (max-width: 750px){
+    .cover-image{
+        height: 50%
+    }
+
+    .info{
+        font-size: 0.6em;
+        height: 45%;
+    }
 }
 
-.movie-title{
-    font-size: 1.3em;
-    width: 100%;
-}
+@media screen and (max-width: 475px){
+    .info{
+        position: relative;
+        flex-direction: column;
+        padding-top: 3em;
+    }
 
-.backdrop-image{
-    /* width: 100%; */
-    position: relative;
-    /* z-index: -1 */
-    height: 100%;
-    /* margin-bottom: 30px; */
-    /* top: 0; */
-    /* left: 0; */
-    /* right: 0; */
-    /* bottom: 0; */
-}
+    .cover-image{
+        height: 20em;
+    }
 
-.cover-image{
-        height: 60%;
-        /* margin-bottom: 5px; */
-        border-radius: 15px;
-}
-
-.date-and-runtime{
-    display: flex;
-    justify-content: space-between;
-}
-
-.movie-overview-section{
-    width: 40%;
+    .movie-overview-section{
+        width: 80%
+    }
 }
