@@ -14,11 +14,9 @@ const Details = () => {
 
     getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then((data) => {
-        console.log(data)
         setMovie(data.movie);
       })
       .catch((error) => {
-        console.log(error)
         setError(error);
       });
   }, []);
