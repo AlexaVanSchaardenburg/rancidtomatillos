@@ -13,8 +13,8 @@ const MovieCard = ({ movie }) => {
       <img className="movie-poster" src={poster_path} alt={title} />
       <div className="movie-details">
         <h2 className='all-movie-titles'>{title}</h2>
+        <p className='all-movies-rating'>✩ {roundedRating}/10 stars ✩</p>
         <p className='all-movies-release-date'>{release_date.split("-")[0]}</p>
-        <p className='all-movies-rating'>Rating: {roundedRating}/10</p>
       </div>
     </NavLink >
   );
