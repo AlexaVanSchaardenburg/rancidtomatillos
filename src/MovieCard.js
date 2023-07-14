@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import './MovieCard.css';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 const MovieCard = ({ movie }) => {
 
@@ -9,14 +9,14 @@ const MovieCard = ({ movie }) => {
   const roundedRating = Math.round(average_rating * 10) / 10;
 
   return (
-    <Link to={`/${id}`} className="movie-card" id="">
+    <NavLink to={`/${id}`} className="movie-card" id="" style={{ textDecoration: 'none' }}>
       <img className="movie-poster" src={poster_path} alt={title} />
       <div className="movie-details">
-        <h2>{title}</h2>
-        <p>{release_date.split("-")[0]}</p>
-        <p>Rating: {roundedRating}/10</p>
+        <h2 className='all-movie-titles'>{title}</h2>
+        <p className='all-movies-rating'>✩ {roundedRating}/10 stars ✩</p>
+        <p className='all-movies-release-date'>{release_date.split("-")[0]}</p>
       </div>
-    </Link >
+    </NavLink >
   );
 };
 

@@ -14,14 +14,20 @@ const Details = () => {
 
     getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then((data) => {
-        console.log(data)
         setMovie(data.movie);
       })
       .catch((error) => {
-        console.log(error)
         setError(error);
       });
   }, []);
+
+  const formatMoney = (value) => {
+    if (value <= 500) {
+      return 'Not provided'
+    } else {
+      return value.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    }
+  }
 
   return (
     <>
@@ -47,9 +53,9 @@ const Details = () => {
                 <div className="movie-rating-section">
                   <h3>✩ {movie.average_rating}/10</h3>
                   <p>BUDGET:</p>
-                  <p>${movie.budget}</p>
+                  <p>{formatMoney(movie.budget)}</p>
                   <p>REVENUE:</p>
-                  <p>${movie.revenue}</p>
+                  <p>{formatMoney(movie.revenue)}</p>
                 </div>
               </div>
             </article>
