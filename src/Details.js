@@ -37,17 +37,17 @@ const Details = () => {
                 <div className="movie-overview-section">
                   <h1 className='movie-title'>{movie.title}</h1>
                   <div className="date-and-runtime">
-                    <p>{movie.release_date}</p>
+                    <p>{movie.release_date.slice(0,4)}</p>
                     <p>{movie.runtime} min</p>
                   </div>
                   <p>{movie.tagline}</p>
                   <p>{movie.overview}</p>
                 </div>
                 <div className="movie-rating-section">
-                  <h3>Rating: {movie.average_rating}/10</h3>
-                  <p>Movie Budget:</p>
+                  <h3>✩ {movie.average_rating}/10</h3>
+                  <p>BUDGET:</p>
                   <p>${movie.budget}</p>
-                  <p>Movie Revenue:</p>
+                  <p>REVENUE:</p>
                   <p>${movie.revenue}</p>
                 </div>
               </div>
