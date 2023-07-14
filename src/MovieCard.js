@@ -12,9 +12,9 @@ const MovieCard = ({ movie }) => {
     <NavLink to={`/${id}`} className="movie-card" id="">
       <img className="movie-poster" src={poster_path} alt={title} />
       <div className="movie-details">
-        <h2 className='movie-title'>{title}</h2>
-        <p className='release-date'>{release_date.split("-")[0]}</p>
-        <p className='rating'>Rating: {roundedRating}/10</p>
+        <h2 className='all-movie-titles'>{title}</h2>
+        <p className='all-movies-release-date'>{release_date.split("-")[0]}</p>
+        <p className='all-movies-rating'>Rating: {roundedRating}/10</p>
       </div>
     </NavLink >
   );
