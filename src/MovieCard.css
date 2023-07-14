@@ -26,6 +26,7 @@
   font-size: 1.275rem;
   font-weight: bold;
   width: 7.5rem;
+  text-align: center;
 }
 
 .all-movies-release-date {
@@ -62,18 +63,16 @@
     margin: 0.15625rem .075rem;
     grid-gap: .25rem;
   }
-/* 
-  .movie-card {
-    align-items: center;
-  } */
 
   .movie-poster {
     width: 4.6875rem;
   }
 
   .all-movie-titles {
-    font-size: 0.5rem;
-    width: 3.4375rem;
+    font-size: 0.6rem;
+    width: 4rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .all-movies-release-date{
