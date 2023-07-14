@@ -1,9 +1,9 @@
-.movie-card-grid {
+/* .movie-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   grid-gap: 10px;
   margin: 20px 10px;
-}
+} */
 
 .movie-card {
   display: flex;
@@ -29,4 +29,118 @@
 
 .release-date {
   font-size: 14px;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 768px) {
+  .movie-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    margin: 10px;
+  }
+
+  .movie-title {
+    font-size: 16px;
+    width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    margin: 5px;
+  }
+
+  .movie-poster {
+    width: 90px;
+  }
+
+  .movie-title {
+    font-size: 14px;
+    width: 70px;
+  }
+
+  .release-date {
+    font-size: 12px;
+  }
+}
+
+/* /////////////// */
+
+.movie-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  grid-gap: 1rem;
+  margin: 1.25rem 0.625rem;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.625rem;
+  text-align: center;
+  /* border: 2px solid blue; */
+}
+
+.movie-poster {
+  width: 9.375rem;
+  height: auto;
+  margin-bottom: 0.3125rem;
+  border-radius: 0.9375rem;
+}
+
+.movie-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 7.5rem;
+}
+
+.release-date {
+  font-size: 0.875rem;
+}
+
+/* Media queries for responsiveness */
+
+@media (max-width: 665px) {
+  .movie-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(6.25rem, 1fr));
+    margin: 0.3125rem;
+    grid-gap: .5rem;
+  }
+
+  .movie-card {
+    height: auto;
+  }
+
+  .movie-poster {
+    width: 7rem;
+    height: auto;
+  }
+
+  .movie-title {
+    font-size: .75rem;
+    width: 5.625rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+    margin: 0.15625rem;
+    grid-gap: .25rem;
+  }
+
+  .movie-poster {
+    width: 4.6875rem;
+  }
+
+  .movie-title {
+    font-size: 0.5rem;
+    width: 3.4375rem;
+  }
+
+  .release-date {
+    font-size: 0.75rem;
+  }
 }
