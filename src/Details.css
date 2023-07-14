@@ -4,33 +4,33 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    background: rgba(24,0,71,1);
 }
 
 .info {
-    background: rgba(24,0,71,0.7);
+    background: linear-gradient(rgba(24,0,71,0), rgba(24,0,71,1));
     width: 100%;
-    padding: 15px;
+    padding-top: 100px;
+    padding-bottom: 40px;
     display: flex; 
     justify-content: space-around;
     position: absolute;
 }
 
-p{
-    color: #E65CA2
-}
-
-h2{
-    color: #FEB47D
+.movie-title{
+    font-size: 50px;
+    width: 100%;
 }
 
 .backdrop-image{
     width: 100%;
     position: relative;
+    margin-bottom: 30px
 }
 
 .cover-image{
         width: 210px;
-        height: auto;
+        /* height: auto; */
         /* margin-bottom: 5px; */
         border-radius: 15px;
 }
@@ -42,5 +42,8 @@ h2{
 
 .movie-overview-section{
     width: 40%;
-    border: solid blue 2px;
+}
+
+@media screen and (max-width: 900px) {
+    
 }
