@@ -62,14 +62,3 @@ const Details = () => {
 };
 
 export default Details;
-
-/* 
-STEPS I FOLLOWED TO REFACOTR THIS COMPONENT
-1. move the fetch call to the details component
-3. add state to set the movie data
-4. refactor to include condtional logic
-  - if fetch has run then return the details component with all the data
-  - if the fetch has NOT returned then display a p-tag that says loading
-5. refactor to change prop types as no prop will be passed to the details component
-6. refactor to remove any now uneeded states
-*/
