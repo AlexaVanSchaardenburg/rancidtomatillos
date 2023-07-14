@@ -23,6 +23,10 @@ const Details = () => {
       });
   }, []);
 
+  const formatMoney = (value) => {
+    return value.toLocaleString("en-US", {style:"currency", currency:"USD"});
+  };
+
   return (
     <>
       {error ? (
@@ -46,7 +50,7 @@ const Details = () => {
                 <div className="movie-rating-section">
                   <h3>✩ {movie.average_rating}/10</h3>
                   <p>BUDGET:</p>
-                  <p>${movie.budget}</p>
+                  <p>{formatMoney(movie.budget)}</p>
                   <p>REVENUE:</p>
                   <p>${movie.revenue}</p>
                 </div>
