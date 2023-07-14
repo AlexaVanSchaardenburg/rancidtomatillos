@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <nav className="nav-container">
       <img src={rancidTomatillosLogo} alt="Rancid Tomatillos Logo" className="logo" />
-      <Button />
+      <Button className="home-button"/>
     </nav>
   );
 };

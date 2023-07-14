@@ -14,14 +14,20 @@ const Details = () => {
 
     getData(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then((data) => {
-        console.log(data)
         setMovie(data.movie);
       })
       .catch((error) => {
-        console.log(error)
         setError(error);
       });
   }, []);
+
+  const formatMoney = (value) => {
+    if (value <= 500) {
+      return 'Not provided'
+    } else {
+      return value.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    }
+  }
 
   return (
     <>
@@ -37,18 +43,18 @@ const Details = () => {
                 <div className="movie-overview-section">
                   <h1 className='movie-title'>{movie.title}</h1>
                   <div className="date-and-runtime">
-                    <p>{movie.release_date}</p>
+                    <p>{movie.release_date.slice(0,4)}</p>
                     <p>{movie.runtime} min</p>
                   </div>
                   <p>{movie.tagline}</p>
                   <p>{movie.overview}</p>
                 </div>
                 <div className="movie-rating-section">
-                  <h3>Rating: {movie.average_rating}/10</h3>
-                  <p>Movie Budget:</p>
-                  <p>${movie.budget}</p>
-                  <p>Movie Revenue:</p>
-                  <p>${movie.revenue}</p>
+                  <h3>✩ {movie.average_rating}/10</h3>
+                  <p>BUDGET:</p>
+                  <p>{formatMoney(movie.budget)}</p>
+                  <p>REVENUE:</p>
+                  <p>{formatMoney(movie.revenue)}</p>
                 </div>
               </div>
             </article>
@@ -62,14 +68,3 @@ const Details = () => {
 };
 
 export default Details;
-
-/* 
-STEPS I FOLLOWED TO REFACOTR THIS COMPONENT
-1. move the fetch call to the details component
-3. add state to set the movie data
-4. refactor to include condtional logic
-  - if fetch has run then return the details component with all the data
-  - if the fetch has NOT returned then display a p-tag that says loading
-5. refactor to change prop types as no prop will be passed to the details component
-6. refactor to remove any now uneeded states
-*/
