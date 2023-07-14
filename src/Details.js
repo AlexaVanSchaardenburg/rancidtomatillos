@@ -52,7 +52,7 @@ const Details = () => {
                   <p>BUDGET:</p>
                   <p>{formatMoney(movie.budget)}</p>
                   <p>REVENUE:</p>
-                  <p>${movie.revenue}</p>
+                  <p>{formatMoney(movie.revenue)}</p>
                 </div>
               </div>
             </article>
