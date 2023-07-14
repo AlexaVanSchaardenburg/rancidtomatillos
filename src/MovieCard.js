@@ -9,7 +9,7 @@ const MovieCard = ({ movie }) => {
   const roundedRating = Math.round(average_rating * 10) / 10;
 
   return (
-    <NavLink to={`/${id}`} className="movie-card" id="">
+    <NavLink to={`/${id}`} className="movie-card" id="" style={{ textDecoration: 'none' }}>
       <img className="movie-poster" src={poster_path} alt={title} />
       <div className="movie-details">
         <h2 className='all-movie-titles'>{title}</h2>
