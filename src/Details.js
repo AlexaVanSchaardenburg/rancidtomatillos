@@ -24,8 +24,12 @@ const Details = () => {
   }, []);
 
   const formatMoney = (value) => {
-    return value.toLocaleString("en-US", {style:"currency", currency:"USD"});
-  };
+    if (value <= 500) {
+      return 'Not provided'
+    } else {
+      return value.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    }
+  }
 
   return (
     <>
