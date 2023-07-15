@@ -36,6 +36,7 @@ const Details = () => {
       ) : (
         <>
           {movie ? (
+            <>
             <article className="details-page">
               <img src={movie.backdrop_path} alt={`Backdrop Image for ${movie.title}`} className="backdrop-image" />
               <div className="info">
@@ -58,6 +59,8 @@ const Details = () => {
                 </div>
               </div>
             </article>
+            <footer></footer>
+            </>
           ) : (
             <p>loading...</p>
           )}

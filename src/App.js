@@ -46,9 +46,11 @@ const App = () => {
           <Route path="/:id" element={<Details />} />
         </Routes>
       )}
+      <footer>
+        
+      </footer>
     </>
   );
 };
   
-
 export default App;
