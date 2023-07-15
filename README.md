@@ -10,9 +10,11 @@ gif goes here
 
 ## Installation Instructions
 Run the following commands to clone down this repo and view the project!
-```git clone git@github.com:AlexaVanSchaardenburg/rancidtomatillos.git
+```
+git clone git@github.com:AlexaVanSchaardenburg/rancidtomatillos.git
 npm install
-npm start ```
+npm start
+```
 
 ## Technologies Used
   **React** - for application logic and markup
