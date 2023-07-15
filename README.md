@@ -6,7 +6,8 @@
   Our goal for this projet was to get more familiar with using React, React Router and Cypress e2e testing. We also focused on creating a web application that was responsive to different screen sizes.
 
 ## Preview
-gif goes here
+![rancid-preview](https://github.com/AlexaVanSchaardenburg/rancidtomatillos/assets/125763236/10fae5b8-00c3-4563-b5ab-44eb304e0ff5)
+
 
 ## Installation Instructions
 Run the following commands to clone down this repo and view the project!
@@ -47,7 +48,7 @@ We did not have time to add these features in the scope of the project, but woul
 <img width="466" alt="Screenshot 2023-07-14 at 7 11 43 PM" src="https://github.com/AlexaVanSchaardenburg/rancidtomatillos/assets/125763236/b24d2916-1bbf-4811-8bce-00205ac5b946">
 
 ## Contributors
-[Alexa VanSchaardenburg](https://github.com/AlexaVanSchaardenburg)
+[Alexa VanSchaardenburg](https://github.com/AlexaVanSchaardenburg) &
 [Andrea Sorensen](https://github.com/andreasorensen)
   
 
