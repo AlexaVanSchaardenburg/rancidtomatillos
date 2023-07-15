@@ -8,6 +8,9 @@
 ## Preview
 ![rancid-preview](https://github.com/AlexaVanSchaardenburg/rancidtomatillos/assets/125763236/10fae5b8-00c3-4563-b5ab-44eb304e0ff5)
 
+- We have made the design fully repsonsive to the size of the users screen, allowing for easy use on a computer and on mobile
+- Movies are easily viewed and can be clicked anywhere on their cover photo, title, or details to open them, making for a seamless user experience
+
 
 ## Installation Instructions
 Run the following commands to clone down this repo and view the project!
