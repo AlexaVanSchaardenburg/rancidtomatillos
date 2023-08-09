@@ -13,6 +13,10 @@
 
 
 ## Installation Instructions
+[View the app here](https://rancidtomatillos-seven.vercel.app/)
+
+OR
+
 Run the following commands to clone down this repo and view the project!
 ```
 git clone git@github.com:AlexaVanSchaardenburg/rancidtomatillos.git
